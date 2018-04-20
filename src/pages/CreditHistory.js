@@ -21,9 +21,9 @@ class CreditHistory extends Component {
 
   componentDidMount() {
     var mock = new MockAdapter(axios)
-    mock.onGet('user/accounts').reply(200, mockAccounts)
+    mock.onGet('api/user/accounts').reply(200, mockAccounts)
 
-    axios.get('user/accounts').then(response => {
+    axios.get('api/user/accounts').then(response => {
       // let's compute the average and the max
       const year = new Date().getFullYear()
       const ages = response.data.accounts.map(account => +account.year)
