@@ -1,6 +1,6 @@
 import React from "react";
 import enzyme, { shallow } from "enzyme";
-import Home from "./Home";
+import Home, { better } from "./Home";
 
 describe("Home", () => {
   let Maison;
@@ -21,5 +21,17 @@ describe("Home", () => {
         </h1>
       )
     ).toEqual(true);
+  });
+});
+
+describe("better ", () => {
+  it("returns the right percentiles", () => {
+    expect(better(801)).toEqual(80);
+    expect(better(741)).toEqual(55);
+    expect(better(671)).toEqual(34);
+    expect(better(581)).toEqual(16);
+    expect(better(301)).toEqual(0);
+    expect(better(undefined)).toEqual(0);
+    expect(better(10000)).toEqual(undefined);
   });
 });
